@@ -1,7 +1,8 @@
 
 let references = ()=>{
     let text = document.querySelector("#text");
-    let reg = /([A-Z]\.?[a-z&\-’ ]{0,15})+\(\d{4}(:\d{0,5})?\)|\(.{1,20}\d{4}.{0,20}\)/gm;
+    // let reg = /([A-Z]\.?[a-z&\-’ ]{0,15})+\(\d{4}([:-]\d{0,5})?\)|\(.{1,20}\d{4}.{0,20}\)/gm;
+       let reg = /([A-Z]\.?[a-z&\-’ ]{0,15})+\( ?\d{4}([:\-]\d{0,5})? ?\)|\(.{1,20}\d{4}.{0,20}\)/g;
     return text.value.match(reg);
 }                 
 
