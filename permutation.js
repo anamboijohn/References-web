@@ -12,7 +12,7 @@ function permutations(str) {
    let permutate = ()=>{
     let text = document.querySelector("#text");
     text = text.value.replace(/\s/g, '');
-    if(text.length>9) return alert('Please only 10 items are allowed. Your string is more than 10 characters');
+    if(text.length>9) return alert('Please only 9 items are allowed. Your string is more than 9 characters');
     else return permutations(text);
 } 
 
