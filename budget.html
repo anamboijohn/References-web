@@ -50,12 +50,12 @@
                             let final = {amount:0, '6.9%':0, 'Amt+6.9%':0, VAT:0, gross:0 }
                             let amount = quantity*unitPrice
                             final.amount = amount
-                            let sixPerc = ((6.9/100) * amount).toFixed(5) * 1
+                            let sixPerc = ((6.9/100) * amount).toFixed(2) * 1
                             final['6.9%'] = sixPerc
                             final['Amt+6.9%'] = amount + sixPerc
-                            let VAT = ((15/100) * final['Amt+6.9%']).toFixed(5) * 1
+                            let VAT = ((15/100) * final['Amt+6.9%']).toFixed(2) * 1
                             final.VAT = VAT
-                            final.gross = (VAT + final['Amt+6.9%']).toFixed(5)*1
+                            final.gross = (VAT + final['Amt+6.9%']).toFixed(2)*1
                             return final
                         }
                      }" @submit.prevent="results = calculate(quantity, unit_price)">
