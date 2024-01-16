@@ -40,7 +40,7 @@
         </header>
       <div class="container mt-5">
         <div class="row">
-            <div class="col">
+            <div class="col-lg">
                 <form action="" class="row g-3" x-data="
                     { 
                         quantity : 0,
@@ -49,12 +49,12 @@
                         {
                             let final = {amount:0, '6.9%':0, 'Amt+6.9%':0, VAT:0, gross:0 }
                             let amount = quantity*unitPrice
-                            final.amount = amount
-                            let sixPerc = ((6.9/100) * amount).toFixed(2) * 1
-                            final['6.9%'] = sixPerc
-                            final['Amt+6.9%'] = amount + sixPerc
-                            let VAT = ((15/100) * final['Amt+6.9%']).toFixed(2) * 1
-                            final.VAT = VAT
+                            final.amount = amount.toFixed(2)
+                            let sixPerc = (6.9/100) * amount
+                            final['6.9%'] = sixPerc.toFixed(2) * 1
+                            final['Amt+6.9%'] = (amount + sixPerc).toFixed(2)*1
+                            let VAT = (15/100) * final['Amt+6.9%']
+                            final.VAT = VAT.toFixed(2) * 1
                             final.gross = (VAT + final['Amt+6.9%']).toFixed(2)*1
                             return final
                         }
@@ -65,20 +65,20 @@
                     <div class="mb-3 flex ">
                         <label for="quantity" class="form-label">
                             Quantity
-                            <input type="number" class="form-control" id="quantity" name="quantity"
+                            <input step="any" type="number" class="form-control" id="quantity" name="quantity"
                                 style="display: flex; flex-direction: row;" placeholder="0.00" x-model="quantity"/>
                         </label>
                     </div>
                     <div class="mb-3 flex ">
                         <label for="quantity" class="form-label">
                             Unit Price
-                            <input type="number" placeholder="0.00" class="form-control" id="unitPrice" name="unitPrice" x-model="unit_price"/>
+                            <input type="number" step="any" placeholder="0.00" class="form-control" id="unitPrice" name="unitPrice" x-model="unit_price"/>
                         </label>
                     </div>
                     <input type="submit" class="mb-3 btn btn-outline-success" style="width: max-content;">
                 </form>
             </div>
-            <div class="col" x-data="{show:true, toggle(){this.show = !this.show}}">
+            <div class="col-lg" x-data="{show:true, toggle(){this.show = !this.show}}">
                 <div>
                     <a x-show="results" class="btn btn-outline-dark" x-on:click="toggle()" id="btns" href="#dsp" role="button"
                         x-text="show?'Hide results':'Show results'"></a>
