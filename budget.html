@@ -55,7 +55,7 @@
                             final['Amt+6.9%'] = amount + sixPerc
                             let VAT = ((15/100) * final['Amt+6.9%']).toFixed(5) * 1
                             final.VAT = VAT
-                            final.gross = VAT + final['Amt+6.9%']
+                            final.gross = (VAT + final['Amt+6.9%']).toFixed(5)*1
                             return final
                         }
                      }" @submit.prevent="results = calculate(quantity, unit_price)">
